@@ -1,0 +1,13 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://dy43maxcgfqov"]
+
+[ext_resource type="Texture2D" uid="uid://cvmtell3ns046" path="res://conwayTileSet.png" id="1_4emil"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6j4w4"]
+texture = ExtResource("1_4emil")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+
+[resource]
+tile_size = Vector2i(64, 64)
+sources/2 = SubResource("TileSetAtlasSource_6j4w4")
