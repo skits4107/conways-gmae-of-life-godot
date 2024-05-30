@@ -6,6 +6,7 @@ var color : Color = Color(1.0, 0.74, 0.0)
 @onready var width : int = get_parent().width
 @onready var height : int = get_parent().height
 var line_width : float = 3.0
+var should_draw : bool = true
 
 #assigned in editor
 @export var camera : Camera2D = null
@@ -16,6 +17,9 @@ func _ready():
 
 
 func _draw():
+	#exit early and do not draw anything
+	if not should_draw:
+		return
 	#draw all of the horizontal lines
 	for y in range(-height, height):
 		#draw line from left to right for current y
@@ -33,5 +37,11 @@ func _process(delta):
 		line_width = 1.2 / camera.zoom.x
 		
 	queue_redraw()
+
+func _input(event):
+	if event is InputEventKey and event.pressed:
+		if event.keycode == KEY_X:
+			should_draw = not should_draw
+		
 
 
