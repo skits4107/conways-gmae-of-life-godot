@@ -91,6 +91,7 @@ func _input(event):
 			#set tile state
 			set_cell(0, tile_pos, CONWAY_TILESET_ID, new_state)
 			
+	#keyboard events		
 	if event is InputEventKey and event.pressed:
 		if event.keycode == KEY_SPACE:
 			is_running = not is_running
