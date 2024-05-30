@@ -1,6 +1,6 @@
 extends Camera2D
 
-var speed : float = 100.0
+var speed : float = GameSettings.camera_speed
 
 
 func _physics_process(delta):

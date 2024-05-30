@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://b6epnukjbllwy"]
 
 [ext_resource type="TileSet" uid="uid://dy43maxcgfqov" path="res://conwayset.tres" id="1_ejcw3"]
-[ext_resource type="Script" path="res://conwayScript.gd" id="2_pkq23"]
-[ext_resource type="Script" path="res://drawGrid.gd" id="3_cxsbb"]
+[ext_resource type="Script" path="res://ConwayScript.gd" id="2_pkq23"]
+[ext_resource type="Script" path="res://DrawGrid.gd" id="3_cxsbb"]
 [ext_resource type="Script" path="res://CameraMove.gd" id="4_m3bmx"]
 
 [node name="Node2D" type="Node2D"]

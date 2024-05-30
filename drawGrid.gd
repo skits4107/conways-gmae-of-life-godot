@@ -2,9 +2,9 @@ extends Node2D
 
 
 var tile_size : int = 64
-var color : Color = Color(1.0, 0.74, 0.0)
-@onready var width : int = get_parent().width
-@onready var height : int = get_parent().height
+var color : Color = GameSettings.grid_color
+@onready var width : int = GameSettings.width
+@onready var height : int = GameSettings.height
 var line_width : float = 3.0
 var should_draw : bool = true
 

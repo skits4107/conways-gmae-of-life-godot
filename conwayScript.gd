@@ -2,8 +2,8 @@ extends TileMap
 
 
 var timer : Timer = Timer.new()
-var width : int = 50
-var height : int = 50
+var width : int = GameSettings.width
+var height : int = GameSettings.height
 
 var is_running : bool = false
 
@@ -15,11 +15,14 @@ const DEAD_CELL : Vector2i = Vector2i(0,0)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-
-	create_random_grid()
+	
+	if GameSettings.start_randomized:
+		create_random_grid()
+	else:
+		create_blank_grid()
 	
 	add_child(timer)
-	timer.wait_time = 0.2  # Update interval
+	timer.wait_time = GameSettings.sim_speed  # Update interval
 	timer.one_shot = false
 	timer.timeout.connect(update_grid)
 	timer.start()
@@ -98,6 +101,8 @@ func _input(event):
 			is_running = not is_running
 		if event.keycode == KEY_Z:
 			create_blank_grid()
+		if event.keycode == KEY_ESCAPE:
+			get_tree().change_scene_to_file("res://MainMenu.tscn")
 			
 
 

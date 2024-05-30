@@ -1,0 +1,237 @@
+[gd_scene load_steps=17 format=3 uid="uid://dyo0bxk7670c8"]
+
+[ext_resource type="Script" path="res://PlayButton.gd" id="1_dav6w"]
+[ext_resource type="Script" path="res://ChangeMenu.gd" id="1_oakqj"]
+[ext_resource type="Script" path="res://ExitButton.gd" id="3_24qi5"]
+[ext_resource type="Script" path="res://GridRedColorSetting.gd" id="4_234ad"]
+[ext_resource type="Script" path="res://IsRnadomized.gd" id="4_gr435"]
+[ext_resource type="Script" path="res://WidthSetting.gd" id="4_khss2"]
+[ext_resource type="Script" path="res://SimSpeedSetting.gd" id="4_shyej"]
+[ext_resource type="Script" path="res://SpeedSetting.gd" id="4_sthhj"]
+[ext_resource type="Script" path="res://GridGreenColorSetting.gd" id="5_duyrj"]
+[ext_resource type="Script" path="res://HeightSetting.gd" id="5_jqc5b"]
+[ext_resource type="Script" path="res://GridBlueColorSetting.gd" id="6_uxwft"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_foggu"]
+font_size = 28
+
+[sub_resource type="LabelSettings" id="LabelSettings_1d0ht"]
+font_size = 37
+
+[sub_resource type="LabelSettings" id="LabelSettings_h4llm"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_lti55"]
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_5grra"]
+font_size = 20
+
+[node name="Node2D" type="Node2D"]
+
+[node name="MainMenu" type="Node2D" parent="."]
+
+[node name="OptionsButton" type="Button" parent="MainMenu" node_paths=PackedStringArray("MenuToToggle")]
+offset_left = 508.0
+offset_top = 281.0
+offset_right = 591.0
+offset_bottom = 313.0
+text = "Options"
+script = ExtResource("1_oakqj")
+MenuToToggle = NodePath("../../OptionsMenu")
+
+[node name="PlayButton" type="Button" parent="MainMenu"]
+offset_left = 508.0
+offset_top = 215.0
+offset_right = 591.0
+offset_bottom = 247.0
+text = "Play"
+script = ExtResource("1_dav6w")
+
+[node name="ExitButton" type="Button" parent="MainMenu"]
+offset_left = 508.0
+offset_top = 346.0
+offset_right = 591.0
+offset_bottom = 378.0
+text = "Exit"
+script = ExtResource("3_24qi5")
+
+[node name="Label" type="Label" parent="MainMenu"]
+offset_left = 399.0
+offset_top = 126.0
+offset_right = 703.0
+offset_bottom = 165.0
+text = "Conway's Game of Life"
+label_settings = SubResource("LabelSettings_foggu")
+horizontal_alignment = 1
+
+[node name="OptionsMenu" type="Node2D" parent="."]
+visible = false
+
+[node name="Label" type="Label" parent="OptionsMenu"]
+offset_left = 512.0
+offset_top = 38.0
+offset_right = 656.0
+offset_bottom = 94.0
+text = "Options"
+label_settings = SubResource("LabelSettings_1d0ht")
+
+[node name="RGB settings" type="Node2D" parent="OptionsMenu"]
+position = Vector2(4, -91)
+
+[node name="R" type="TextEdit" parent="OptionsMenu/RGB settings"]
+offset_left = 436.0
+offset_top = 215.0
+offset_right = 508.0
+offset_bottom = 261.0
+text = "1.0"
+placeholder_text = "0 - 1.0"
+script = ExtResource("4_234ad")
+
+[node name="G" type="TextEdit" parent="OptionsMenu/RGB settings"]
+offset_left = 552.0
+offset_top = 215.0
+offset_right = 629.0
+offset_bottom = 261.0
+text = "0.74"
+placeholder_text = "0 - 1.0"
+script = ExtResource("5_duyrj")
+
+[node name="B" type="TextEdit" parent="OptionsMenu/RGB settings"]
+offset_left = 671.0
+offset_top = 215.0
+offset_right = 748.0
+offset_bottom = 261.0
+text = "0.0"
+placeholder_text = "0 - 1.0"
+script = ExtResource("6_uxwft")
+
+[node name="Label" type="Label" parent="OptionsMenu/RGB settings"]
+offset_left = 399.0
+offset_top = 216.0
+offset_right = 436.0
+offset_bottom = 258.0
+text = "R:"
+label_settings = SubResource("LabelSettings_h4llm")
+
+[node name="Label2" type="Label" parent="OptionsMenu/RGB settings"]
+offset_left = 518.0
+offset_top = 217.0
+offset_right = 555.0
+offset_bottom = 259.0
+text = "G:"
+label_settings = SubResource("LabelSettings_h4llm")
+
+[node name="Label3" type="Label" parent="OptionsMenu/RGB settings"]
+offset_left = 634.0
+offset_top = 217.0
+offset_right = 671.0
+offset_bottom = 259.0
+text = "B:"
+label_settings = SubResource("LabelSettings_h4llm")
+
+[node name="Speed setting" type="Node2D" parent="OptionsMenu"]
+position = Vector2(4, -91)
+
+[node name="Speed" type="TextEdit" parent="OptionsMenu/Speed setting"]
+offset_left = 545.0
+offset_top = 312.0
+offset_right = 629.0
+offset_bottom = 346.0
+text = "100.0"
+script = ExtResource("4_sthhj")
+
+[node name="Label" type="Label" parent="OptionsMenu/Speed setting"]
+offset_left = 402.0
+offset_top = 314.0
+offset_right = 543.0
+offset_bottom = 345.0
+text = "camera speed:"
+label_settings = SubResource("LabelSettings_lti55")
+
+[node name="sim speed" type="Node2D" parent="OptionsMenu"]
+position = Vector2(-2, 45)
+
+[node name="sim speed" type="TextEdit" parent="OptionsMenu/sim speed"]
+offset_left = 545.0
+offset_top = 312.0
+offset_right = 629.0
+offset_bottom = 346.0
+text = "0.2"
+script = ExtResource("4_shyej")
+
+[node name="Label" type="Label" parent="OptionsMenu/sim speed"]
+offset_left = 432.0
+offset_top = 314.0
+offset_right = 547.0
+offset_bottom = 345.0
+text = "sim  speed:"
+label_settings = SubResource("LabelSettings_lti55")
+
+[node name="width" type="Node2D" parent="OptionsMenu"]
+position = Vector2(-2, 91)
+
+[node name="width" type="TextEdit" parent="OptionsMenu/width"]
+offset_left = 545.0
+offset_top = 312.0
+offset_right = 629.0
+offset_bottom = 346.0
+text = "50"
+script = ExtResource("4_khss2")
+
+[node name="Label" type="Label" parent="OptionsMenu/width"]
+offset_left = 471.0
+offset_top = 313.0
+offset_right = 541.0
+offset_bottom = 344.0
+text = "width:"
+label_settings = SubResource("LabelSettings_lti55")
+
+[node name="height" type="Node2D" parent="OptionsMenu"]
+position = Vector2(-3, 133)
+
+[node name="height" type="TextEdit" parent="OptionsMenu/height"]
+offset_left = 545.0
+offset_top = 312.0
+offset_right = 629.0
+offset_bottom = 346.0
+text = "50"
+script = ExtResource("5_jqc5b")
+
+[node name="Label" type="Label" parent="OptionsMenu/height"]
+offset_left = 471.0
+offset_top = 313.0
+offset_right = 541.0
+offset_bottom = 344.0
+text = "height:"
+label_settings = SubResource("LabelSettings_lti55")
+
+[node name="Randomized" type="Node2D" parent="OptionsMenu"]
+position = Vector2(4, -91)
+
+[node name="isRnadomized" type="CheckBox" parent="OptionsMenu/Randomized"]
+offset_left = 563.0
+offset_top = 380.0
+offset_right = 587.0
+offset_bottom = 404.0
+scale = Vector2(2.16, 2.16)
+button_pressed = true
+script = ExtResource("4_gr435")
+
+[node name="Label" type="Label" parent="OptionsMenu/Randomized"]
+offset_left = 390.0
+offset_top = 389.0
+offset_right = 563.0
+offset_bottom = 421.0
+text = "start randomized:"
+label_settings = SubResource("LabelSettings_5grra")
+
+[node name="Back" type="Button" parent="OptionsMenu" node_paths=PackedStringArray("MenuToToggle")]
+offset_left = 506.0
+offset_top = 524.0
+offset_right = 551.0
+offset_bottom = 560.0
+scale = Vector2(1.92598, 1.60088)
+text = "Back"
+script = ExtResource("1_oakqj")
+MenuToToggle = NodePath("../../MainMenu")
