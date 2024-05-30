@@ -2,8 +2,8 @@ extends TileMap
 
 
 var timer : Timer = Timer.new()
-var width : int = 20
-var height : int = 10
+var width : int = 50
+var height : int = 50
 
 var is_running : bool = false
 
@@ -27,10 +27,11 @@ func _ready():
 func create_random_grid() -> void:
 	for x in range(-width, width):
 		for y in range(-height, height):
-			var choice : int = randi() % 2
-			var state : Vector2i = DEAD_CELL
-			if choice == 1:
+			var choice : int = randi() % 2 # random number between 0 and 1
+			var state : Vector2i = DEAD_CELL #default to dead cell
+			if choice == 1: #if number was 1 then it is living cell
 				state = LIVING_CELL
+			#update cell
 			set_cell(0, Vector2i(x, y), CONWAY_TILESET_ID, state)
 
 func create_blank_grid() -> void:

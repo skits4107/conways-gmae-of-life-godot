@@ -7,6 +7,7 @@ var color : Color = Color(1.0, 0.74, 0.0)
 @onready var height : int = get_parent().height
 var line_width : float = 3.0
 
+#assigned in editor
 @export var camera : Camera2D = null
 
 func _ready():
